@@ -1,0 +1,21 @@
+<!--bindtel.wxml-->
+<view class="page">
+  <view class="text-con">
+    <text class="line">
+本软件现已默认支持
+换个手机登录同样的微信号自动的导入
+原有保存的所有加密信息,
+可以无缝衔接使用，无需再次初始化。</text>
+    <text class="line">
+同时强烈建议您再绑定一次手机号，
+这样您将可以在APP版本软件中一键同步，
+当您手机丢失，微信无法登录时也能继续使用
+从而保障您的使用体验更加安全，便捷，和易用
+    </text>
+    <text class="line">当前已绑定手机号:{{tel}}</text>
+  </view>
+  <view class="inp-con">
+    <input class="inp" type="number" placeholder="请输入您的手机号" bindconfirm="gobindtel" bindinput="typing" />
+    <button type="primary" bindtap="gobindtel">绑定</button>
+  </view>
+</view>

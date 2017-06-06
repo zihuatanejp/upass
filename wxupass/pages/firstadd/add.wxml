@@ -1,0 +1,87 @@
+<!--add.wxml-->
+<view class="page">    
+  
+  <view class="weui-article">
+    <view class="weui-article__h1"></view>
+    <view class="weui-article__section">
+      <view class="weui-article__title">现在，输入一些加密前的原文</view>
+      <view class="weui-article__section">
+        <view class="weui-article__h3">以完成初始化此加密包。</view>
+        <view class="weui-article__p">
+            除标题外，每条记录可使用不确定项的键值对存储内容(ˇˍˇ) 
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">示例：</view>
+  <view class="weui-cells weui-cells_after-title demo">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">标题</view>
+      </view>
+      <view class="weui-cell__bd">
+          <!--<input class="weui-input" placeholder="请输入qq"/>-->
+          <view class="weui-label" >腾讯qq</view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+            <view class="weui-label">用户名</view>
+        </view>
+        <view class="weui-cell__bd">
+            <view class="weui-label" >1xxx230</view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <view class="weui-label" >xxx30</view>
+        </view>
+    </view>
+  </view>
+      
+  <view class="weui-cells__title" style="color:#e64340;">尝试一下：</view>
+
+  <view class="weui-cells weui-cells_after-title" wx:for="{{con}}" wx:key="ind">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <input class="weui-input" placeholder="" value="标题" disabled="{{true}}" />
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入" bindblur="titlesave"  data-ind="{{item.ind}}" value="{{item.title}}" data-sid="no" focus="{{item.foc}}" confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus" />
+      </view>
+      <view class="weui-cell__ft">
+          <icon type="clear" size="23" color="#e64340" class="" data-ind="{{item.ind}}" bindtap="delitem"></icon>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:for="{{item.con}}" wx:for-item="it" wx:key="id">
+      <view class="weui-cell__hd">
+        <input class="weui-input" placeholder="请输入" value="{{it.k}}" bindblur="kvsave" data-ind="{{item.ind}}" data-sid="{{it.id}}" data-ty="k" focus="{{it.kfoc}}"  confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus"  />
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入" value="{{it.v}}" bindblur="kvsave" data-ind="{{item.ind}}" data-sid="{{it.id}}" data-ty="v" focus="{{it.vfoc}}"  confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus" />
+      </view>
+      <view class="weui-cell__ft">
+        <icon type="clear" size="23" color="#E64340" class="" data-ind="{{item.ind}}" data-sid="{{it.id}}" bindtap="delsubitem"></icon>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_link" data-ind="{{item.ind}}" bindtap="addsubitem">
+      <view class="weui-cell__bd">添加更多</view>
+    </view>
+  </view>
+  
+  <view class="additem" bindtap="additem">
+    <image src="../../res/img/add.png" class="addicon"></image>
+    <text>添加条目</text>
+  </view>
+  
+  <view class="post">
+    <view class="fix">
+      <button class="weui-btn" type="primary" bindtap="submit">确认提交</button>
+    </view>
+  </view>
+  
+</view>

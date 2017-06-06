@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class="page">
+  
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindblur="searchblur" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+  
+  <view class="shistory weui-cells" wx:if="{{showhis}}">
+    <view class="weui-cell tle ">最近的搜索记录</view>
+    <view class="weui-cell" wx:for="{{shistory}}" wx:key="*this" data-stext="{{item}}" bindtap="quicks">{{item}}</view>
+  </view>
+
+  <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+    <view class="weui-cell" wx:if="{{sris}}">
+      <view class="weui-cell__hd" style="margin-right:15px;">
+        <text>共搜索到<text class="hlg">{{srtotal}}</text>个匹配项，当前位于第<text class="hlg">{{srind}}</text>个匹配项</text>
+      </view>
+      <view class="weui-cell__ft" wx:if="{{havenext}}">
+        <button class="weui-btn mini-btn" type="primary" size="mini" data-srind="{{srind}}" bindtap="gonext">去下一个</button>
+      </view>
+    </view>
+    <view class="weui-cell" style="color:#888;" wx:if="{{sris?false:true}}">暂无结果</view>
+  </view>
+  
+  <view class="tip" wx:if="{{showtip}}" bindtap="canceltext">以下文本可以长按复制 <text style="margin-left:20px;">X</text> </view>
+
+  <scroll-view class="vsc" scroll-y="{{true}}" scroll-into-view="{{scroitem}}" scroll-with-animation="{{false}}" enable-back-to-top="{{true}}" >
+    
+    <view class="item" id="{{item.ind}}"  wx:for="{{con}}" wx:key="ind">
+      <view class="weui-cells__title">{{item.title}}</view>
+      <view class="weui-cells weui-cells_after-title" >
+            <view class="weui-cell " wx:for="{{item.con}}" wx:for-item="it" wx:key="id" >
+                <view class="weui-cell__hd">
+                    <text class="weui-label" selectable="{{true}}">{{it.k}}</text>
+                </view>
+                <view class="weui-cell__bd">
+                    <text class="weui-label" selectable="{{true}}">{{it.v}}</text>
+                </view>
+            </view>
+      </view>
+    </view>
+    
+  </scroll-view>
+
+</view>

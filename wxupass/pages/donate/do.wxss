@@ -1,0 +1,18 @@
+/* do.wxss */
+.weui-article__section{
+  margin-bottom:0px;
+}
+.weui-btn-area{
+  margin-top:2px;
+}
+.icon{
+    width:28px;
+    height:28px;
+    margin: -2px 5px 0px;
+    vertical-align: middle;
+}
+.manico{
+  width:26px;
+  height:26px;
+  margin-right:6px;
+}

@@ -1,0 +1,37 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">访问密码</view>
+        <view class="page__desc">Access Passphrase</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="password" confirm-type="next" placeholder="请设置您的访问密码" bindblur="verify_input" bindchange="inp1change"  />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="{{isvinp?'success':'warn'}}" size="23" color="{{isvinp?'#0ABA07':'#E64340'}}" class="{{v_int}}"></icon>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_warn">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="password" placeholder="再输入一次确认它" bindblur="verify_repeat" />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="{{isverify?'success':'warn'}}" size="23" color="{{isverify?'#0ABA07':'#E64340'}}" class="{{v_rep}}"></icon>
+                </view>
+            </view>    
+        </view>
+
+        <view>
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">6位以上数字或字母，此密码用于访问加密数据。</view>
+            </label>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="setpwd">确定</button>
+        </view>
+    </view>
+</view>

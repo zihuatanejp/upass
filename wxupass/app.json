@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/acc/acc",
+    "pages/index/index",
+    "pages/msg/msg",
+    "pages/setaccpwd/set",
+    "pages/edit/edit",
+    "pages/find/find",
+    "pages/sts/sts",
+    "pages/init/init",
+    "pages/firstadd/add",
+    "pages/msg/descr",
+    "pages/find/bindtel",
+    "pages/find/fbk",
+    "pages/find/mymsg",
+    "pages/find/msgd",
+    "pages/donate/do"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "密码家",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#0ABA07",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "res/img/home.png",
+        "selectedIconPath": "res/img/homehi.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "res/img/edit.png",
+        "selectedIconPath": "res/img/edithi.png",
+        "pagePath": "pages/edit/edit",
+        "text": "编辑"
+      },
+      {
+        "iconPath": "res/img/find.png",
+        "selectedIconPath": "res/img/findhi.png",
+        "pagePath": "pages/find/find",
+        "text": "发现"
+      },
+      {
+        "iconPath": "res/img/sts.png",
+        "selectedIconPath": "res/img/stshi.png",
+        "pagePath": "pages/sts/sts",
+        "text": "状态"
+      }
+    ]
+  }
+}

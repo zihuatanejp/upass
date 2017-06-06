@@ -1,0 +1,17 @@
+/* fbk.wxss */
+
+.page__bd{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.weui-cell .text{
+  width: 100%;
+  font-size: 15px;
+  line-height: 30px;
+  color: #555;
+}
+
+.weui-btn-area{
+  margin: 28px 15px 0px;
+}

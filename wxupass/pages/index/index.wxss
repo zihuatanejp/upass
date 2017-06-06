@@ -1,0 +1,49 @@
+/**index.wxss**/
+.vsc{
+  min-height: 1100rpx;
+  height: 1100rpx;
+  padding-bottom: 50px;
+}
+
+.item{
+  /*min-width: 200px;
+  min-height: 180px;
+  background-color: #888;*/
+  margin-top: 20px;
+}
+.item .weui-label{
+  line-height: 20px;
+  min-width: 105px;
+  width:auto;
+}
+.weui-cell__bd,.weui-cell__hd {
+  -webkit-box-flex:auto;
+  -webkit-flex:auto;
+  flex:auto;
+}
+.tle{
+  padding:6px 15px;
+  color:#888;
+}
+.hlg{
+  color:#e64340;
+}
+.weui-cell__bd,.weui-cell__hd {
+-webkit-box-flex:auto;
+-webkit-flex:auto;
+flex:auto;
+}
+
+.weui-cell__ft{
+-webkit-box-flex:none;
+-webkit-flex:none;
+flex:none;
+}
+
+.tip{
+  background-color: #99CCFF;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 34px;
+}

@@ -1,0 +1,21 @@
+/* find.wxss */
+page,.page{
+  min-height: 100%;
+  background-color: #eee;
+}
+.page__bd{
+  padding: 0px 0px 0px;
+}
+
+.weui-cells{
+  margin-top: 20px;
+}
+.weui-cells::after,.weui-cells::before{
+  border: none;
+}
+.icon{
+    width:26px;
+    height:26px;
+    margin: 0px 5px 0px;
+    vertical-align: middle;
+}

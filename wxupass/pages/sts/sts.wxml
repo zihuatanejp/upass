@@ -1,0 +1,29 @@
+<!--sts.wxml-->
+<view class="page">
+  <view class="page__bd">
+
+      <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">加密类型</view>
+                <view class="weui-cell__ft">{{enctype}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">加密方式</view>
+                <view class="weui-cell__ft">{{encway}}</view>
+            </view>
+            
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+            <navigator url="../msg/descr?page=p1" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">当前已加密保存在本地的密文</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+      </view>
+
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" open-type="share" >转发给好友</button>
+      </view>
+
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view class="page">
+
+    <view class="weui-cells weui-cells_after-title" wx:for="{{con}}" wx:key="ind">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <input class="weui-input" placeholder="" value="标题" disabled="{{true}}" />
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入" bindblur="titlesave"  data-ind="{{item.ind}}" data-sid="no" value="{{item.title}}" focus="{{item.foc}}" confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus" />
+            </view>
+            <view class="weui-cell__ft">
+                <icon type="clear" size="23" color="#e64340" class="" data-ind="{{item.ind}}" bindtap="delitem"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:for="{{item.con}}" wx:for-item="it" wx:key="id">
+            <view class="weui-cell__hd">
+                <input class="weui-input" placeholder="请输入" value="{{it.k}}" bindblur="kvsave" data-ind="{{item.ind}}" data-sid="{{it.id}}" data-ty="k" focus="{{it.kfoc}}"  confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus" />
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入" value="{{it.v}}" bindblur="kvsave" data-ind="{{item.ind}}" data-sid="{{it.id}}" data-ty="v" focus="{{it.vfoc}}"  confirm-hold="{{false}}" confirm-type="next" bindconfirm="nextfocus" />
+            </view>
+            <view class="weui-cell__ft">
+                <icon type="clear" size="23" color="#E64340" class="" data-ind="{{item.ind}}" data-sid="{{it.id}}" bindtap="delsubitem"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_link" data-ind="{{item.ind}}" bindtap="addsubitem">
+            <view class="weui-cell__bd">添加更多</view>
+        </view>
+    </view>
+    <view class="additem" bindtap="additem">
+        <image src="../../res/img/add.png" class="addicon"></image>
+        <text>添加条目</text>
+    </view>
+
+    <view class="post">
+        <view class="fix">
+            <button class="weui-btn" type="primary" bindtap="submit">确认提交</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+.hide{
+    display: none;
+}
+.weui-input {
+    color: #333;
+}

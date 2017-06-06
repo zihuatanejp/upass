@@ -1,0 +1,63 @@
+/* init.wxss */
+.pack-con{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;  
+  padding: 50rpx 30rpx;
+}
+.pack{
+  width: 550rpx;
+  height: 338rpx;
+  background-color: rgb(240,240,240);
+  margin: 50rpx 30rpx;
+  border-radius: 10rpx;
+  align-items: center;
+}
+.pack:hover,.pack:focus{
+  background-color: rgba(220,220,220,1);
+}
+.a:hover,.a:focus,.a:active,.navigator-hover{
+  background-color: #fafafa;
+}
+.pack icon{
+  width: 102rpx;
+}
+.descr{
+  width: 320rpx;
+  padding: 30rpx;
+}
+.descr .title-con{
+  justify-content: flex-start;
+  align-items: center; 
+}
+.descr .title{
+  color: #09bb07;
+  font-size: 40rpx;
+}
+.descr .txt{
+  color: #888;
+  font-size: 28rpx;
+  display: block;
+  margin-top:12rpx;
+}
+.descr .info-circle{
+  width: 50rpx;
+  margin-left: 12rpx;
+  vertical-align: top;
+}
+.p-title,.sub-title{
+  display: block;
+  text-align: center;
+  width:100%;
+}
+.p-title{
+  font-size: 40rpx;
+  color: #edb400;
+  margin-top: 40rpx;
+}
+.sub-title{
+  font-size: 28rpx;
+  color: #b2b2b2;
+}

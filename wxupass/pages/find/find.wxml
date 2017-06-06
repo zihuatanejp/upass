@@ -1,0 +1,55 @@
+<!--find.wxml-->
+<view class="page">
+  <view class="page__bd">
+
+      <view class="weui-cells weui-cells_after-title">
+            <navigator url="./bindtel" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../res/img/bind.png" class="icon" ></image>
+                </view>
+                <view class="weui-cell__bd">绑定手机号</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"><!--说明文字--></view>
+            </navigator>
+            <view class="weui-cell " hover-class="weui-cell_active" bindtap="resetapp">
+                <view class="weui-cell__hd">
+                    <image src="../../res/img/reset.png" class="icon"></image>
+                </view>
+                <view class="weui-cell__bd">重置本程序</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+        </view>
+
+      <view class="weui-cells weui-cells_after-title">
+            <navigator url="./fbk" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../res/img/feedback.png" class="icon"></image>
+                </view>
+                <view class="weui-cell__bd">意见反馈&联系作者</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="./mymsg" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../res/img/msg.png" class="icon"></image>
+                </view>
+                <view class="weui-cell__bd">
+                  <view style="display: inline-block; vertical-align: middle">我的消息</view>
+                  <view class="weui-badge" style="margin-left: 5px;" wx:if="{{msgcnt > 0}}">{{msgcnt}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+            <navigator url="../donate/do" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../res/img/cute.png" class="icon"></image>
+                </view>
+                <view class="weui-cell__bd">那些可爱的人
+                <image src="../../res/img/cute.png" class="icon"></image>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+      </view>
+
+  </view>
+</view>

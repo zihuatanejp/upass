@@ -1,0 +1,24 @@
+/* msgd.wxss */
+.weui-cells{
+  margin-top: 20px;
+}
+.weui-cell__bd,.weui-cell__hd {
+-webkit-box-flex:auto;
+-webkit-flex:auto;
+flex:auto;
+}
+
+.weui-cell__ft{
+-webkit-box-flex:none;
+-webkit-flex:none;
+flex:none;
+}
+.textarea{
+  width: 260px;
+  font-size: 15px;
+  line-height: 23px;
+}
+.reply-btn{
+  height: 36px;
+  line-height: 36px;
+}

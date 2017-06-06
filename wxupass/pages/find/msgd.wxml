@@ -1,0 +1,29 @@
+<!--msgd.wxml-->
+<view class="page">
+  <view class="page__bd">
+
+    <view class="weui-cells weui-cells_after-title" wx:if="{{showtop}}">
+      <view class="weui-cell weui-cell_access" >
+        <view class="weui-cell__bd">{{top.con}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" wx:if="{{mid.length>0}}">
+      <view class="weui-cell weui-cell_access" wx:for="{{mid}}" wx:key="id" >
+        <view class="weui-cell__bd">{{item.con}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" wx:if="{{showreply}}">
+      <view class="weui-cell " >
+        <view class="weui-cell__bd">
+          <textarea class="textarea" placeholder="回复信息.." maxlength="{{200}}" auto-height="{{true}}" bindinput="typing" bindconfirm="goreply" value="{{replycon}}" />
+        </view>
+        <view class="weui-cell__ft ">
+          <button class="weui-btn reply-btn" type="primary" bindtap="goreply">回复</button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

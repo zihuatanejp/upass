@@ -1,0 +1,9 @@
+/* sts.wxss */
+
+.page__bd{
+  padding: 0px 0px 40px;
+}
+
+.weui-cells{
+  margin-top: 20px;
+}

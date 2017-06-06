@@ -1,0 +1,56 @@
+/* add.wxss */
+
+.demo .weui-label{
+    color: #999;
+    height: 44px;
+    line-height: 44px;
+}
+.weui-cells_after-title{
+    margin-bottom: 20px;
+}
+.weui-article{
+    padding-bottom: 0px;
+}
+.additem{
+    padding:8px 15px;
+    position:relative;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    background-color: white;
+    justify-content: center;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+.addicon,.delicon{
+    width:26px;
+    height:26px;
+    margin: 0px 5px;
+}
+.post{
+    padding: 40px 0px;
+}
+.post .fix{
+    position: fixed;
+    z-index: 100;
+    width:100%;
+    bottom:12px;
+}
+.post .weui-btn{
+    margin: 0px 15px;
+}
+
+.weui-cell__bd,.weui-cell__hd {
+-webkit-box-flex:auto;
+-webkit-flex:auto;
+flex:auto;
+}
+
+.weui-cell__ft{
+-webkit-box-flex:none;
+-webkit-flex:none;
+flex:none;
+}

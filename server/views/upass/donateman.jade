@@ -1,0 +1,122 @@
+doctype html
+html
+	head
+		title 捐赠人名单
+		meta(charset='utf-8')
+		meta(name="viewport",content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no")
+		link(rel='stylesheet', href='/lib/bootstrap.min.css')
+	body
+		.container-fluid
+			.row.no-gutter
+				.col-xs-12.col-lg-6.col-lg-offset-3
+					.btns(style="position:fixed;z-index:10;top:15px;")
+						button.btn.btn-success#add(style="padding:6px 30px;right:265px;top:48px;") 新建一个
+						button.btn.btn-success#add_update(style="padding:6px 30px;margin-left:30px;right:115px;top:48px;") 保存新建
+						
+					.table-responsive(style="margin-top:60px;")
+						table.table.table-striped.table-hover#editable
+							tr
+								th 序号
+								th 昵称
+								th 金钱
+								th 时间
+								th 操作
+							- var ind = 0;
+							for it in data
+								tr(data-id="#{it._id}")
+									- ind++;
+									td #{ind}
+									td
+										input.uname(placeholder="请输入昵称",value="#{it.uname}")
+									td
+										input.umoney(placeholder="请输入数量",value="#{it.umoney}")
+									td.ts #{it.ts}
+									td
+										button.btn.btn-primary.line_update 更新
+					
+
+		script(src="/lib/jquery.min.js")
+		script(src="/lib/bootstrap.min.js")
+		script.
+			;(function($){
+
+				$(function () {
+					$('.line_update').click(function(){
+						var tr = $(this).closest('tr');
+						var c = tr.children();
+
+						var id = tr.data('id');
+						var uname = c.find('.uname').val();
+						var umoney = parseFloat( c.find('.umoney').val() );
+
+						if(!uname){
+							alert('请输入昵称');
+							return false;
+						}
+						if(!umoney){
+							alert('请输入钱数');
+							return false;
+						}
+						var data = {
+							id:id,
+							uname:uname,
+							umoney:umoney
+						};
+						var url = '/upass/uptmoney';
+						$.ajax({
+							url:url,
+							data:data,
+							method:'POST',
+							success:function(d){
+								if(d.code =='200'){ alert('更新成功');}
+							}
+						});
+					});
+
+					var add_flag = '0';
+					$('#add').click(function(){
+						if( add_flag == '0'){
+							var last = $('#editable tr').last();
+							var new_el = last.clone();
+							last.after(new_el);
+							$('#editable tr:last :input').val('');
+							$('#editable tr:last .ts').text('');
+							add_flag = '1';
+						}
+					});
+
+					$('#add_update').click(function(){
+						if(add_flag == '1'){
+							var c = $('#editable tr:last').children();
+							
+							var uname = c.find('.uname').val();
+							var umoney = parseFloat(c.find('.umoney').val());
+							var ts = Math.round(new Date().getTime() / 1000);
+							if(!uname){
+								alert('请输入昵称');
+								return false;
+							}
+							if(!umoney){
+								alert('请输入钱数');
+								return false;
+							}
+							var data = {
+								uname:uname,
+								umoney:umoney,
+								ts:ts
+							};
+							var url = '/upass/addtmoney';
+							$.ajax({
+								url:url,
+								data:data,
+								method:'POST',
+								success:function(d){
+									add_flag = '0';
+									if(d.code =='200'){ alert('添加成功');}
+								}
+							});
+						}
+					});
+				});
+
+			}) (jQuery);

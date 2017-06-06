@@ -1,0 +1,16 @@
+/* acc.wxss */
+
+.weui-input {
+    color: #333;
+}
+
+.page__bd{
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+.weui-btn-area{
+  margin: 28px 15px 0px;
+}
+.hide{
+  display: none;
+}

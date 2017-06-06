@@ -1,0 +1,201 @@
+doctype html
+html
+	head
+		title 管理意见反馈
+		meta(charset='utf-8')
+		meta(name="viewport",content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no")
+		link(rel='stylesheet', href='/lib/bootstrap.min.css')
+		style.
+			<!--
+			.feedbackp{
+				width:60%;
+				display:inline-block;
+				vertical-align:top;
+				margin-right:30px;
+			}
+			.replyp{
+				width:35%;
+				position:fixed;
+				display:inline-block;
+				top:30px;		
+			}
+			.table,table{
+				table-layout:fixed;
+			}
+			td{
+				word-break:break-all;
+			}
+			.tdcon{
+				width:220px;
+				word-break:break-all;
+			}
+			.tdcon2{ width:220px;}
+			.tduid{ width:270px;}
+			.tdnum{
+				width: 60px;
+				max-width:60px;
+				
+			}
+			-->
+	body
+		.container-fluid
+			.row.no-gutter
+				.col-xs-12.col-lg-10.col-lg-offset-1(style="padding-top:30px;")
+					
+					.feedbackp
+						.panel.panel-primary.table-responsive
+							.panel-heading 最近的意见反馈内容
+							table#lastfbks.table.table-striped.table-hover.table-bordered
+					
+					.replyp
+						.panel.panel-success.table-responsive(style="max-height:600px;overflow:scroll;")
+							.panel-heading 回复消息
+							table#replytb.table.table-striped.table-hover.table-bordered
+							.panel-body
+								.input-group
+									input#replyinp.form-control(type="text",placeholder="请输入回复内容")
+									span.input-group-addon(style="padding:0px;")
+										button#replybtn.btn.btn-primary 回复
+						
+		- var datastr = JSON.stringify(data);		
+		.pagedata(style="display:none;") #{datastr}
+		script(src="/lib/jquery.min.js")
+		script(src="/lib/bootstrap.min.js")
+		script.
+			;(function($){
+
+				$(function () {
+					
+					var data = JSON.parse($('.pagedata').text());
+					//console.log(data);
+					
+					var trs = '<tr><th class="tdnum">序号</th><th class="tdcon2">反馈内容</th><th class="tduid">微信uid</th><th>发送时间</th></tr>';
+					(function(){
+						var ind = 0;
+						for(var i = 0;i < data.length;i++){
+							if(data[i].feedback){
+								var item = data[i].feedback;
+								if(item.length > 0){ 
+									var it = item.slice(-1)[0];
+									var html = ('<tr class="fbktr" data-fid="'+it.fid+'">');
+									html += ('<td class="tdnum">'+(++ind)+'</td>');
+									html += ('<td class="tdcon2">'+it.con+'</td>');
+									html += ('<td>'+data[i].wxuid+'</td>');
+									html += ('<td>'+it.ts+'</td>');
+									html += ('</tr>');
+									trs+=html;
+								}
+							}
+							else{
+								var html = ('<tr class="fbktr">');
+									html += ('<td class="tdnum">'+(ind++)+'</td>');
+									html += ('<td class="tdcon2">'+'无'+'</td>');
+									html += ('<td>'+data[i].wxuid+'</td>');
+									html += ('<td>'+'无'+'</td>');
+									html += ('</tr>');
+									trs+=html;
+							}
+						}
+						
+					})();
+
+					$('#lastfbks').html(trs);
+
+					$('#lastfbks').on('click','.fbktr',function(){					
+						var self = $(this);
+						$('#replytb').html('');
+						$('#replytb').data('fid','');
+						var fid = self.data('fid');
+						var len = data.length;
+						var res = [];
+						if(fid){
+							fid = fid.toString();
+							for(var i = 0;i<len;i++){
+								var item = data[i];
+								if(item.feedback){  
+									var it = item.feedback; 
+									for(var j = 0;j<it.length;j++){
+										if(it[j].fid == fid){  
+											res = res.concat(it);
+											$('#replytb').data('wxuid',item.wxuid);
+											if(item.msg){ res = res.concat(item.msg); }
+										}
+									}
+								}
+							}
+						}
+						res = deepcp(res);
+						
+						var ind = 0;
+						var trs = '<tr><th class="tdnum">序号</th><th>身份</th><th class="tdcon">内容</th><th>时间</th></tr>';
+						for(var k = 0;k < res.length;k++){
+							var it = res[k]; 
+							var html = ('<tr>');
+							html += ('<td class="tdnum">'+(++ind)+'</td>');
+							if(it.fid){
+								html += ('<td>用户'+'</td>');
+							}
+							if(it.mid){
+								html += ('<td>管理员'+'</td>');
+							}							
+							html += ('<td class="tdcon">'+it.con+'</td>');
+							html += ('<td>'+it.ts+'</td>');
+							html += ('</tr>');
+							trs+=html;
+						}
+						$('#replytb').html(trs);
+						$('#replytb').data('fid',fid);
+						$('#replyinp').val('');
+					});
+
+					$('#replybtn').click(function(){ 
+						var relfid = $('#replytb').data('fid');
+						if(!relfid){
+							return false;
+						}
+						var con = $('#replyinp').val();
+						if(!con){
+							alert('请输入回复内容！');
+							return false;
+						}
+						var wxuid = $('#replytb').data('wxuid');
+						var ts = Math.round(new Date().getTime() / 1000);
+						var mid = genid();
+						var postd = { wxuid:wxuid, mid:mid, relfid:relfid, con:con, ts:ts, isread:false };
+						var url = '/upass/replyuser';
+						$.ajax({
+							url:url,
+							data:postd,
+							method:'POST',
+							success:function(d){
+								if(d.code =='200'){ $('#replyinp').val(''); alert('更新成功');}
+							}
+						});
+					});
+
+					function deepcp(obj){
+					    var sc = obj instanceof Array ? [] : {};
+					    for(var x in obj){
+					      sc[x] = typeof obj[x] === 'object' ? deepcp(obj[x]) : obj[x];
+					    }
+					    return sc;
+					}
+
+					function genid(){
+					    var ts = new Date().getTime();
+					    var ranchar = ran(100, 999) + '';
+					    return ts + ranchar;
+					}
+
+					function ran (a, b) {
+					    var n = Math.abs(a - b);
+					    var base_n = a;
+					    if (a > b) { base_n = b; }
+					    var res = Math.floor(Math.random() * n) + base_n;
+					    return res;
+					}
+
+					
+				});
+
+			}) (jQuery);

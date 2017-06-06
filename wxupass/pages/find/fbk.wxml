@@ -1,0 +1,17 @@
+<!--fbk.wxml-->
+<view class="page">
+  <view class="page__bd">
+
+      <view class="weui-cells__title">i want to say:</view>
+      <view class="weui-cells weui-cells_after-title" >
+            <view class="weui-cell " >
+              <textarea class="text" placeholder="请留下您的宝贵意见,以便作者继续改进" maxlength="{{200}}" auto-height="{{true}}" bindinput="typing" bindconfirm="gosub" value="{{con}}" />
+            </view>
+      </view>
+
+      <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="gosub">提交</button>
+      </view>
+
+  </view>
+</view>

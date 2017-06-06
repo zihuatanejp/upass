@@ -1,0 +1,25 @@
+<!--acc.wxml-->
+<view class="page">
+  
+  <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="password" confirm-type="done" placeholder="请输入您的访问密码" bindblur="vinput" focus="{{true}}" value="{{pwd}}" />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="{{isright?'success':'warn'}}" size="23" color="{{isright?'#0ABA07':'#E64340'}}" class="{{ishide?'hide':''}}"></icon>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="vpwd">确定</button>
+        </view>
+        <view class="foot" style="position:fixed; bottom:40px;width:100%;text-align:center;">
+          <text bindtap="resetapp" style="font-size:30rpx;color:#b2b2b2;line-height:44rpx;">忘记密码，去重置</text>
+        </view>
+  </view>
+
+</view>
+

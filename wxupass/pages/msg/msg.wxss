@@ -1,0 +1,25 @@
+page{
+    background-color: #FFFFFF;
+}
+.v-con{
+    height: 785rpx;    
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+}
+.weui-msg__extra-area{
+    position: static;
+}
+.descr{
+    word-break: break-all;
+    color: #353535;
+    text-align: left;
+}
+.weui-msg{
+    padding-top:0px;
+}
+.weui-msg__icon-area{
+    margin-top: 36px;
+}
+.weui-msg__desc{
+    text-align: left;
+}

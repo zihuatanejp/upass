@@ -1,0 +1,47 @@
+/* bindtel.wxss */
+
+.text-con{
+  padding: 15px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.first{
+  margin-top: 18px;
+}
+
+.line{ 
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  margin-bottom: 10px; 
+  display: block;
+}
+.inp-con{
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+.inp-con .inp{
+  display: inline-block;
+  vertical-align: top;
+  width:70%;
+  height: 38px;
+  font-size: 18px;
+  line-height: 20px;
+  background-color: white;
+  color: #222;
+  border: 1px solid #ddd;
+  text-align: left;
+  border-radius: 4px;
+  padding: 9px 15px;
+  box-sizing:border-box;
+}
+.inp-con button{
+  display: inline-block;
+  vertical-align: top;
+  width:22%;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 6px;
+}

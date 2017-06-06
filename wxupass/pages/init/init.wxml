@@ -1,0 +1,36 @@
+<!--init.wxml-->
+<view class="container">
+  <text class="p-title">个性生成更适合您的信息保险箱</text>
+  <view class="pack-con">    
+    <navigator url="../msg/msg?packinfo=sym" class="a">
+      <view class="pack flex">
+        <icon size="50" type="info"></icon>
+        <view class="descr ">
+          <view class="title-con flex">
+            <text class="title">对称加密包</text>
+            <!--<navigator url="../msg/msg?packinfo=sym">-->
+              <!--<icon type="info_circle" size="24" color="#edb400" class="info-circle"></icon>-->
+            <!--</navigator>-->
+          </view>          
+          <text class="txt"><text style="color:#E64340;">强烈推荐:</text>采用AES加密,美国联邦政府高级加密标准，安全且速度快。</text>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="../msg/msg?packinfo=asym" class="a">
+    <!--<navigator url="../edit/edit?isfirst=yes" class="a">-->
+      <view class="pack flex">
+        <icon size="50" type="info"></icon>
+        <view class="descr ">
+          <view class="title-con flex">
+            <text class="title">非对称加密包</text>
+            <!--<navigator url="../msg/msg?packinfo=asym">-->
+              <!--<icon type="info_circle" size="24" color="#edb400" class="info-circle"></icon>-->
+            <!--</navigator>-->
+          </view>          
+          <text class="txt">使用一对的公/私钥对保护您的重要信息</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <text class="sub-title">选取加密包进入密码家</text>
+</view>
