@@ -101,7 +101,7 @@ Page({
         wx.showLoading({
             title:'正在为您生成2048位的公/私钥对，该过程涉及极大数字的运算操作，具体时间取决于您的处理器性能，请稍候片刻...',mask:true,
             complete:function(){
-                pair = app.gbd.rsa.keypair({bits:1024});
+                pair = app.gbd.rsa.keypair({bits:2048});
                 wx.hideLoading();
                 // console.log(pair);
                 var pbkstr = pair.pbkstr;

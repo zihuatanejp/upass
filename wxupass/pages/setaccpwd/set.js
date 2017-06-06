@@ -29,7 +29,6 @@ Page({
       return obj;
     },
     setpwd: function () {
-      console.log('ver');
         var self = this;        
         if(!self.csd.wxuid){
           return false;
@@ -55,8 +54,7 @@ Page({
             bkid: bkid, 
             bktype: bktype, 
             bkpbk: pbkstr,
-            bkpvkcipher: pvkcipher,
-            pwd:self.csd.pwd
+            bkpvkcipher: pvkcipher
           };
         }
         if(bktype == 'sym'){
@@ -69,8 +67,7 @@ Page({
             bkid: bkid,
             bktype: bktype,
             salt:salt,
-            shpwd:shpwd,
-            pwd: self.csd.pwd
+            shpwd:shpwd
           };
         }
         wx.request({
