@@ -12,4 +12,5 @@
 
 本软件前后端包括加密算法皆使用纯js实现，
 关于加密算法部分使用了同在github上的另一个js库crypto-js[项目主页](https://github.com/brix/crypto-js),主要使用了其中sha2的哈希算法和AES的对称加解密
+
 至于js实现的非对称加密算法则使用了公认极高强度的2048位的rsa。这个轮子找了两天没找着合适的，参考了斯坦福的那个js的rsademo后又稍微改造了一下forge项目[项目主页](https://github.com/digitalbazaar/forge)
