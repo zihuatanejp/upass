@@ -1,5 +1,5 @@
-var seqqueue = require('seq-queue');
 
+var seqqueue = require('seq-queue');
 
 var obj = {
 	initmon:initmon

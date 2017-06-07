@@ -6,7 +6,11 @@ var path = require('path');
 var mon = require('./mon');
 var mongodb = require('mongodb');
 
-var con_url = 'mongodb://conupass:conpassxx@localhost:27017/upass';
+var confd = fs.readFileSync( path.join(__dirname, 'upassconf/conf.js') );
+confd = confd.toString();
+confd = JSON.parse(confd);
+
+var con_url = 'mongodb://'+confd.data.dbuser':'+confd.data.dbpwd+'@localhost:27017/upass';
 var mon = require('./mon');
 var accmon = new mon.initmon(con_url).accmon;
 
@@ -17,8 +21,8 @@ router.get('/getwxuid', function(req, res) {
 	var code = req.query.code;
 
 	var wxurl = 'https://api.weixin.qq.com/sns/jscode2session';
-	var appid = 'xxxxx';                   // 小程序的appid
-	var appsecret = 'xxxxx';               // 小程序的appsecret
+	var appid = confd.data.appid;                   // 小程序的appid
+	var appsecret = confd.data.appsecret;               // 小程序的appsecret
 	var jscode = code;                     // 临时登录的code
 	wxurl = (wxurl + '?appid=' + appid + '&secret=' + appsecret + '&js_code=' + jscode + '&grant_type=authorization_code');
 
@@ -385,7 +389,7 @@ router.post('/replyuser',function (req,res) {
 
 function dectk(str) {
 	var tk = new String(str);
-	var biao = 'xxxxx';  // token表
+	var biao = confd.data.tktbl;  // token表
 	var arr = tk.split('');
 	var ts = '';
 	for(var x in arr){
