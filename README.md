@@ -46,7 +46,7 @@
 	* app.js
 	* app.json
 
-其中server目录下为上传服务器(后)端的项目代码，后端使用了node流行的express框架，窝把本项目用到的配置项都放到了server->routes->upassconf->conf.js中，
+其中server目录下为上传服务器(后)端的项目代码，后端使用了node流行的express框架，我把本项目用到的配置项都放到了server->routes->upassconf->conf.js中，
 文件里的appid是小程序申请的appid,appsecret是小程序的appsecret，dbuser和dbpwd则分别是后端的mongodb配置后的账号和密码，
 tktbl为36位不重复字符的token映射密码表，可由集成者自己自定义填充。
 该字段对应前端发过来的tk选项，和wxupass->app.js下的gentk方法中的var biao变量保持一致，从而用来通过某些请求的token验证
