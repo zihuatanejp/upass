@@ -27,25 +27,24 @@
 将本项目克隆下来到本地，
 目录结构为：
 
-server
-	bin
-	public
-    css img js lib
-  routes
-    upassconf
-      conf.js
-    mon.js 
-    upass.js
-  views
-  app.js
-  package.json
-
->wxupass
->>lib
->>pages
->>res
->>app.js
->>app.json
+* server
+	* bin
+	* public
+    * css img js lib
+  * routes
+    * upassconf
+      * conf.js
+    * mon.js 
+    * upass.js
+  * views
+  * app.js
+  * package.json
+* wxupass
+	* lib
+	* pages
+	* res
+	* app.js
+	* app.json
 
 ok
 ===
