@@ -11,7 +11,7 @@
 可以在微信上搜索小程序： "密码家" 体验使用，同时推荐有条件的开发者可以集成到自己的服务器上，作为一个自己的私服使用，这样安全强度更高。
 
 或者微信扫码使用
-![](https://github.com/zihuatanejp/upass/raw/master/wxupass/res/img/qr.jpg)![](http://default.buditem.com/img/wxxiaoqr.jpg)
+![](http://default.buditem.com/img/qr.jpg)![](https://github.com/zihuatanejp/upass/raw/master/wxupass/res/img/wxxiaoqr.jpg)
 
 
 本软件前后端包括加密算法皆使用纯js实现，
