@@ -1,0 +1,78 @@
+<!--pages/ranchars/ran.wxml-->
+<view class="page">
+    <view class="page__bd">
+
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">生成几位:</view>
+        <view class="weui-panel__bd">
+          <radio-group bindchange="senum">
+             <label class="radio">
+               <radio value="4" checked="{{false}}" />4位
+             </label>
+             <label class="radio">
+               <radio value="6" checked="{{true}}" />6位
+             </label>
+             <label class="radio">
+               <radio value="8" checked="{{false}}" />8位
+             </label>
+             <label class="radio">
+               <radio value="16" checked="{{false}}" />16位
+             </label>
+             <label class="radio">
+               <radio value="100" checked="{{false}}" />指定位数
+             </label>
+          </radio-group>
+          <view class="inp" hidden="{{inphide}}">
+            <input bindinput="inputnum" placeholder="几" type="number" maxlength="{{5}}" />
+            <view class="text">位</view>
+          </view>          
+        </view>
+      </view>
+
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">生成范围:</view>
+        <view class="weui-panel__bd">
+           <checkbox-group bindchange="serange">
+            <label class="checkbox">
+              <checkbox value="09" checked="{{true}}" />0-9
+            </label>
+            <label class="checkbox">
+              <checkbox value="az" checked="{{false}}" />a-z
+            </label>
+            <label class="checkbox">
+              <checkbox value="AZ" checked="{{false}}" />A-Z
+            </label>
+           </checkbox-group>
+        </view>
+      </view>
+
+      <view class="weui-panel weui-panel_access" hidden="{{respan}}">
+        <view class="weui-panel__hd">随机密码：</view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <text class="weui-media-box__title weui-media-box__title_in-text" selectable="{{true}}" >{{res}}</text>
+            <view class="weui-media-box__desc">已生成并复制到剪贴板，可直接去粘贴使用</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap="vpwd">生成随机密码</button>
+      </view>
+
+      <view class="weui-panel weui-panel_access" hidden="{{!respan}}">
+        <view class="weui-panel__hd">说明：</view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">这个小工具让你告别</view>
+            <view class="weui-media-box__desc">苦苦思考该设什么样的密码字符组合阿？</view>
+            <view class="weui-media-box__desc">变态的网站注册要求必须密码必须多少位还得有大小写字符阿？</view>
+            <view class="weui-media-box__desc">告诉我只能输入数字？？？</view>
+            <view class="weui-media-box__desc">我要个足够长的随机字符串给新歌命名？(再也不用脸滚键盘啦~\(≧▽≦)/)</view>
+            <view class="weui-media-box__desc">...</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+</view>

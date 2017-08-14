@@ -1,6 +1,7 @@
 //app.js
 var rsa = require('lib/rsa.js'); // 引入rsa库
 var crypt = require('lib/cryptojs'); //引入aes,hash库
+var nt = require('lib/nt.js'); //引入时间库
 App({
   // globalData对象 小程序的全局数据访问对象
   gbd:{
@@ -8,6 +9,7 @@ App({
     rsa:rsa,
     crypt:crypt,
     sha2: crypt.SHA256,
+    nt:nt,
     shareinfo:{
       title:'密码家--不愁记密码',path:'../acc/acc',
       success: function (res) { /*console.log(res);*/ },
@@ -247,6 +249,65 @@ App({
     var base_n = a;
     if (a > b) { base_n = b; }
     var res = Math.floor(Math.random() * n) + base_n;
+    return res;
+  },
+  //生成一个随机字符串 指定范围和长度
+  genranchars:function (range,num) {
+    var self = this;
+    var tbiao = '',res='',i=0;
+    //生成tbiao
+    if(range.length>1){
+      tbiao += ( gentbiao( range.substring(0,2) ) );
+    }
+    if(range.length>3){
+      tbiao += ( gentbiao( range.substring(2,4) ) );
+    }
+    if(range.length>5){
+      tbiao += ( gentbiao( range.substring(4,6) ) );
+    }
+
+    // 随机char
+    if(tbiao.length==10){ 
+      for(i=0;i<num;i++){
+        res += ( tbiao.charAt( self.ran(0,10) ) );
+      }
+    }
+    if(tbiao.length==26){ 
+      for(i=0;i<num;i++){
+        res += ( tbiao.charAt( self.ran(0,26) ) );
+      }
+    }
+    if(tbiao.length==36){ 
+      for(i=0;i<num;i++){
+        res += ( tbiao.charAt( self.ran(0,36) ) );
+      }
+    }
+    if(tbiao.length==52){ 
+      for(i=0;i<num;i++){
+        res += ( tbiao.charAt( self.ran(0,52) ) );
+      }
+    }
+    if(tbiao.length==62){ 
+      for(i=0;i<num;i++){
+        res += ( tbiao.charAt( self.ran(0,62) ) );
+      }
+    }
+
+    function gentbiao(tt) {
+      var t = '';
+      switch(tt){
+        case '09':
+          t = '0123456789';
+          break;
+        case 'az':
+          t = 'abcdefghijklmnopqrstuvwxyz';
+          break;
+        case 'AZ':
+          t = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          break;
+      }
+      return t;
+    }
     return res;
   }
 });

@@ -1,0 +1,38 @@
+/* pages/ranchars/ran.wxss */
+.weui-panel:first-child {
+  margin-top: 10px;
+}
+.weui-panel__hd{
+  font-size: 14px;
+}
+
+.weui-panel__bd{
+  padding: 15px;
+}
+
+.weui-panel__bd label{
+  width: 70px;
+  display: inline-block;
+}
+.weui-panel__bd label:last-child{
+  width: 135px;
+  margin-top: 12px;
+}
+.inp{margin-top: 10px;}
+.inp input{
+  display: inline-block;
+  border:1px solid #ddd;
+  line-height:20px;
+  width:100px;
+  padding:5px 12px;
+  font-size: 15px;
+
+}
+.inp .text{
+  display:inline-block;
+  vertical-align:top;
+  margin-top:3px;
+  height:40px;
+  line-height:38px;
+
+}

@@ -14,7 +14,10 @@
     "pages/find/fbk",
     "pages/find/mymsg",
     "pages/find/msgd",
-    "pages/donate/do"
+    "pages/donate/do",
+    "pages/ranchars/ran",
+    "pages/secret/i",
+    "pages/secret/enc"
   ],
   "window": {
     "backgroundTextStyle": "light",

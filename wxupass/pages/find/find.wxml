@@ -3,6 +3,20 @@
   <view class="page__bd">
 
       <view class="weui-cells weui-cells_after-title">
+            <navigator url="../ranchars/ran" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <view class="weui-cell__hd">
+                      <image src="../../res/img/random.png" class="icon" ></image>
+                  </view>
+                  <view class="weui-cell__bd">随机生成密码工具</view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="../secret/i" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <view class="weui-cell__hd">
+                      <image src="../../res/img/secret.png" class="icon" ></image>
+                  </view>
+                  <view class="weui-cell__bd">暗号</view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
             <navigator url="./bindtel" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
                     <image src="../../res/img/bind.png" class="icon" ></image>
